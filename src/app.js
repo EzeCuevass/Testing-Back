@@ -7,10 +7,11 @@ import petsRouter from './routes/pets.router.js';
 import adoptionsRouter from './routes/adoption.router.js';
 import sessionsRouter from './routes/sessions.router.js';
 import mocksRouter from './routes/mocks.router.js'
+import 'dotenv/config'
 
 const app = express();
 const PORT = process.env.PORT||8080;
-const connection = mongoose.connect(`mongodb+srv://EzeCuevas:viegoteamo59@cluster0.bxumzls.mongodb.net/AdoptMe?retryWrites=true&w=majority&appName=Cluster0`)
+const connection = mongoose.connect(process.env.MONGO_URI)
 
 app.use(express.json());
 app.use(cookieParser());
