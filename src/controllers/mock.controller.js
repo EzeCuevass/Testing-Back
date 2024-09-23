@@ -1,5 +1,14 @@
-import userModel from "../dao/models/User.js";
 import { usersService } from "../services/index.js";
+
+const getMocks = async(req,res) => {
+    try {
+        const response = await usersService.getAll()
+        res.status(200).json(response)
+    } catch (error) {
+        console.log(error);
+        return error
+    }
+}
 
 const createMock =  async(req,res)=>{
     try {
@@ -12,4 +21,4 @@ const createMock =  async(req,res)=>{
     }
 }
 
-export default {createMock}
+export default {getMocks, createMock}
