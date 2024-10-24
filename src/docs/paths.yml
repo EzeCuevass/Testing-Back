@@ -1,0 +1,115 @@
+paths:
+  /api/users:
+    get:
+      tags:
+      - Usuarios
+      summary: Lista de usuarios
+      responses:
+        200:
+          description: Lista de usuarios
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/RespuestaGetAll'
+        500:
+          description: Internal Server Error
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/InternalServerError'
+  /api/users/{id}:
+    get: 
+      tags:
+      - Usuarios
+      summary: Buscar usuario por id
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          description: Id referente al usuario
+          schema: 
+            type: string
+      responses:
+        200: 
+          description: Usuario encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/RespuestaGetUser'
+        404:
+          description: Usuario no encontrado
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/RespuestaUserNotFound'
+        500:
+          description: Internal Server Error
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/InternalServerError'
+    put:
+      tags: 
+      - Usuarios
+      summary: Editar informacion de usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Id del usuario
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/parameters/schemas/BodyCreateUser'
+      responses:
+        200:
+          description: Usuario actualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/RespuestaUpdateUser'
+        404:
+          description: Usuario encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/RespuestaUserNotFound'        
+        500:
+          description: Usuario encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/InternalServerError'
+    delete: 
+      tags:
+      - Usuarios
+      summary: Eliminar usuario por id
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          description: Id referente al usuario
+          schema: 
+            type: string
+      responses:
+        200: 
+          description: Usuario eliminado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/RespuestaDeleteUser'
+        404:
+          description: Usuario no encontrado
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/RespuestaUserNotFound'
+        500:
+          description: Internal Server Error
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/InternalServerError'

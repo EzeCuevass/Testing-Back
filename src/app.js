@@ -8,10 +8,19 @@ import adoptionsRouter from './routes/adoption.router.js';
 import sessionsRouter from './routes/sessions.router.js';
 import mocksRouter from './routes/mocks.router.js'
 import 'dotenv/config'
+import {info} from "./docs/info.js"
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUI from "swagger-ui-express"
 
 const app = express();
 const PORT = process.env.PORT||8080;
 const connection = mongoose.connect(process.env.MONGO_URI)
+
+
+const specs = swaggerJSDoc(info)
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(specs))
+
+
 
 app.use(express.json());
 app.use(cookieParser());

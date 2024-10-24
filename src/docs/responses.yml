@@ -1,0 +1,120 @@
+components:
+  schema:
+    Users:
+      RespuestaGetAll:
+        type: object
+        properties:
+          status:
+            type: string
+            description: El estado del response
+            example: success
+          payload:
+            type: array
+            items:
+              properties:
+                id:
+                  type: string
+                  description: Id del usuario
+                  example: asdfg65431
+                first_name:
+                  type: string
+                  description: Nombre del usuario
+                  example: Eze
+                last_name:
+                  type: string
+                  description: Apellido del usuario
+                  example: Cuevas
+                email:
+                  type: string
+                  description: Email del usuario
+                  example: eze.cuevass@gmail.com
+                password:
+                  type: string
+                  description: Contraseña del usuario
+                  example: clavitoclavounpablito1
+                role:
+                  type: string
+                  description: Rol del usuario
+                  example: admin
+                pets:
+                  type: array
+                  description: Mascotas del usuario
+                  example: []
+      RespuestaGetUser:
+        type: object
+        properties:
+          status:
+            type: string
+            description: El estado del response
+            example: success
+          payload:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Id del usuario
+                example: asdfg65431
+              first_name:
+                type: string
+                description: Nombre del usuario
+                example: Eze
+              last_name:
+                type: string
+                description: Apellido del usuario
+                example: Cuevas
+              email:
+                type: string
+                description: Email del usuario
+                example: eze.cuevass@gmail.com
+              password:
+                type: string
+                description: Contraseña del usuario
+                example: clavitoclavounpablito1
+              role:
+                type: string
+                description: Rol del usuario
+                example: admin
+              pets:
+                type: array
+                description: Mascotas del usuario
+                example: []
+      RespuestaUpdateUser:
+        type: object
+        properties:
+          status:
+            type: string
+            description: Estado de la respuesta
+            example: success
+          message:
+            type: string
+            description: Mensaje de la respuesta
+            example: User updated
+      RespuestaDeleteUser:
+        type: object
+        properties:
+          status:
+            type: string
+            description: Estado de la respuesta
+            example: success
+          message:
+            type: string
+            description: Mensaje de la respuesta
+            example: User deleted
+      RespuestaUserNotFound:
+        type: object
+        properties:
+          status:
+            type: string
+            description: Estado de la respuesta
+            example: error
+          error:
+            type: string
+            description: Error de la respuesta
+            example: User not found
+      InternalServerError:
+        type: object
+        properties:
+          msg:
+            type: string
+            description: Internal Server Error
+            example: Internal Server Error

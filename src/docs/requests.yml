@@ -1,0 +1,67 @@
+components:
+  parameters:
+    schemas:
+      BodyCreateUser:
+        type: object
+        required:
+          - first_name
+          - last_name
+          - email
+          - password
+        properties:
+          first_name:
+            type: string
+            description: Primer nombre
+            example: Eze
+          last_name:
+            type: string
+            description: Apellido
+            example: Cuevas
+          email:
+            type: string
+            description: Email
+            example: eze.cuevass@gmail.com
+          password:
+            type: string
+            description: Contraseña
+            example: pablitoclavounclavito1
+          role:
+            type: string
+            description: Rol de usuario
+            example: admin
+          pets:
+            type: array
+            description: Array de mascotas
+            example: ["6513216843115012", "61654651684561"]
+      BodyUpdateUser:
+        type: object
+        required:
+          - first_name
+          - last_name
+          - email
+          - password
+        properties:
+          first_name:
+            type: string
+            description: Primer nombre
+            example: Eze
+          last_name:
+            type: string
+            description: Apellido
+            example: Cuevas
+          email:
+            type: string
+            description: Email
+            example: eze.cuevass@gmail.com
+          password:
+            type: string
+            description: Contraseña
+            example: pablitoclavounclavito1
+          role:
+            type: string
+            description: Rol de usuario
+            example: admin
+          pets:
+            type: array
+            description: Array de mascotas
+            example: ["6513216843115012", "61654651684561"]
